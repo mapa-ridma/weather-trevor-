@@ -5,13 +5,13 @@ import axios from 'axios';
 function App() {
   // Define API key, create values and way to change values
 
-const apiKey = ''
+const apiCode = '4905ba3a11a81943fd1b0b0b5f364428'
 const [data, setData] = useState([{}])
 const [city, setCity] = useState("")
 
 const fetchWeather = (event) => {
   if (event.key === "Enter") {
-    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`).then((response) => {
+    axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiCode}`).then((response) => {
       setData(response.data)
       console.log(response.data)
       
@@ -23,6 +23,24 @@ const fetchWeather = (event) => {
 }
 
 
+
+// let icon = null;
+
+// function displayIcons () {
+//   if(typeof data.main != "undefined"){
+//     if(data.weather[0].main == "clouds"){
+//       icon = "./icons/04d@2x.png"
+// }  else if(data.weather[0].main == "thunderstorm"){
+//     icon = "./icons/11d@2x.png"
+// }   else if(data.weather[0].main == "rain"){
+//     icon = "./icons/09n@2x.png"
+// }   else if(data.weather[0].main == "clear"){
+//     icon = "./icons/01d@2x.png"
+// }   else if(data.weather[0].main == "snow"){
+//     icon = "./icons/13n@2x.png"
+// }}
+
+// }
 
 
 
@@ -51,6 +69,7 @@ return(
 
 
 
+<br></br>
 <div id="location-container">
 
 
@@ -70,7 +89,7 @@ return(
 
         <div className="top">
           <div className="location">
-            <h1>{data.city?.name}</h1>
+            <h2>{data.city?.name}</h2>
           </div>
 
 <br></br>
@@ -80,40 +99,61 @@ return(
   <div className = "dayContainer">
 
           <div className="date">
-            {data.list ? <h1>Date: {data.list[0].dt_txt}</h1> : null}
+            {data.list ? <p> {data.list[0].dt_txt}  </p> : null}
           </div>
+          &nbsp;
           <div className="tempMin">
-            {data.list ? <h1>Min Temp: {data.list[0].main.temp_min}°C</h1> : null}
+            {data.list ? <p>Min Temp: {data.list[0].main.temp_min}°C </p> : null}
           </div>
+          &nbsp;
           <div className="tempMax">
-            {data.list ? <h1>Max Temp: {data.list[0].main.temp_max}°C</h1> : null}
+            {data.list ? <p>Max Temp: {data.list[0].main.temp_max}°C </p> : null}
           </div>
+          &nbsp;
           <div className="weatherDescription">
-            {data.list ? <h1>Weather: {data.list[0].weather[0].main}</h1> : null}
+            {data.list ? <p>Condition: {data.list[0].weather[0].main} </p> : null} 
           </div>
+          &nbsp;
+          <div className="windspeed">
+            {data.list ? <p>Windspeed: {data.list[0].wind.speed} km/h</p> : null}
+          </div>
+          &nbsp;
+
           {/* <div className="weatherIcon">
-            {data.list ? <h1>{data.list[0].weather[0].icon}</h1> : null}
+            {data.list ? <p>{data.list[0].weather[0].icon}</p> : null}
           </div> */}
+          
+          {/* "http://openweathermap.org/img/wn/${iconId}@2x.png" */}
+          {/* <img src="http://openweathermap.org/img/wn/"{data.list[0].weather[0].icon}"@2x.png" alt="icon"></img> */}
 
   </div>
 
+ 
 
 {/* Day 2 */}
 <br></br>
 <div className = "dayContainer">
 
           <div className="date">
-            {data.list ? <h1>Date: {data.list[8].dt_txt}</h1> : null}
+            {data.list ? <p> {data.list[8].dt_txt} </p> : null}
           </div>
+          &nbsp;
           <div className="tempMin">
-            {data.list ? <h1>Min Temp: {data.list[8].main.temp_min}°C</h1> : null}
+            {data.list ? <p>Min Temp: {data.list[8].main.temp_min}°C </p> : null}
           </div>
+          &nbsp;
           <div className="tempMax">
-            {data.list ? <h1>Max Temp: {data.list[8].main.temp_max}°C</h1> : null}
+            {data.list ? <p>Max Temp: {data.list[8].main.temp_max}°C </p> : null}
           </div>
+          &nbsp;
           <div className="weatherDescription">
-            {data.list ? <h1>Weather: {data.list[8].weather[0].main}</h1> : null}
+            {data.list ? <p>Condition: {data.list[8].weather[0].main} </p> : null}
           </div>
+          &nbsp;
+          <div className="windspeed">
+            {data.list ? <p>Windspeed: {data.list[8].wind.speed} km/h</p> : null}
+          </div>
+          &nbsp;
 
 </div>
 
@@ -124,17 +164,25 @@ return(
 <div className = "dayContainer">
 
           <div className="date">
-            {data.list ? <h1>Date: {data.list[16].dt_txt}</h1> : null}
+            {data.list ? <p> {data.list[16].dt_txt} </p> : null}
           </div>
+          &nbsp;
           <div className="tempMin">
-            {data.list ? <h1>Min Temp: {data.list[16].main.temp_min}°C</h1> : null}
+            {data.list ? <p>Min Temp: {data.list[16].main.temp_min}°C </p> : null}
           </div>
+          &nbsp;
           <div className="tempMax">
-            {data.list ? <h1>Max Temp: {data.list[16].main.temp_max}°C</h1> : null}
+            {data.list ? <p>Max Temp: {data.list[16].main.temp_max}°C </p> : null}
           </div>
+          &nbsp;
           <div className="weatherDescription">
-            {data.list ? <h1>Weather: {data.list[16].weather[0].main}</h1> : null}
+            {data.list ? <p>Condition: {data.list[16].weather[0].main} </p> : null}
           </div>
+          &nbsp;
+          <div className="windspeed">
+            {data.list ? <p>Windspeed: {data.list[16].wind.speed} km/h</p> : null}
+          </div>
+          &nbsp;
 
 </div>
 
@@ -144,17 +192,25 @@ return(
 <div className = "dayContainer">
 
           <div className="date">
-            {data.list ? <h1>Date: {data.list[24].dt_txt}</h1> : null}
+            {data.list ? <p> {data.list[24].dt_txt} </p> : null}
           </div>
+          &nbsp;
           <div className="tempMin">
-            {data.list ? <h1>Min Temp: {data.list[24].main.temp_min}°C</h1> : null}
+            {data.list ? <p>Min Temp: {data.list[24].main.temp_min}°C </p> : null}
           </div>
+          &nbsp;
           <div className="tempMax">
-            {data.list ? <h1>Max Temp: {data.list[24].main.temp_max}°C</h1> : null}
+            {data.list ? <p>Max Temp: {data.list[24].main.temp_max}°C </p> : null}
           </div>
+          &nbsp;
           <div className="weatherDescription">
-            {data.list ? <h1>Weather: {data.list[24].weather[0].main}</h1> : null}
+            {data.list ? <p>Condition: {data.list[24].weather[0].main} </p> : null}
           </div>
+          &nbsp;
+          <div className="windspeed">
+            {data.list ? <p>Windspeed: {data.list[24].wind.speed} km/h</p> : null}
+          </div>
+          &nbsp;
 
 </div>
 
@@ -164,17 +220,25 @@ return(
 <div className = "dayContainer">
 
           <div className="date">
-            {data.list ? <h1>Date: {data.list[32].dt_txt}</h1> : null}
+            {data.list ? <p> {data.list[32].dt_txt} </p> : null}
           </div>
+          &nbsp;
           <div className="tempMin">
-            {data.list ? <h1>Min Temp: {data.list[32].main.temp_min}°C</h1> : null}
+            {data.list ? <p> Min Temp: {data.list[32].main.temp_min}°C </p> : null}
           </div>
+          &nbsp;
           <div className="tempMax">
-            {data.list ? <h1>Max Temp: {data.list[32].main.temp_max}°C</h1> : null}
+            {data.list ? <p>Max Temp: {data.list[32].main.temp_max}°C </p> : null}
           </div>
+          &nbsp;
           <div className="weatherDescription">
-            {data.list ? <h1>Weather: {data.list[32].weather[0].main}</h1> : null}
+            {data.list ? <p>Condition: {data.list[32].weather[0].main} </p> : null}
           </div>
+          &nbsp;
+          <div className="windspeed">
+            {data.list ? <p>Windspeed: {data.list[32].wind.speed} km/h</p> : null}
+          </div>
+          &nbsp;
 
 </div>
 
@@ -190,7 +254,6 @@ return(
 
 
 </div>
-
 
 
 
@@ -233,5 +296,10 @@ return(
 
 // Function App closing curly brace
 }
+
+
+ 
+
+
 
 export default App;
