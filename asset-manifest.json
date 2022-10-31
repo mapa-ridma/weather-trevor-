@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/weather-trevor-/static/css/main.628bfc7f.css",
+    "main.js": "/weather-trevor-/static/js/main.cfeb7883.js",
+    "static/js/787.d6197fb8.chunk.js": "/weather-trevor-/static/js/787.d6197fb8.chunk.js",
+    "static/media/logo.svg": "/weather-trevor-/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/weather-trevor-/index.html",
+    "main.628bfc7f.css.map": "/weather-trevor-/static/css/main.628bfc7f.css.map",
+    "main.cfeb7883.js.map": "/weather-trevor-/static/js/main.cfeb7883.js.map",
+    "787.d6197fb8.chunk.js.map": "/weather-trevor-/static/js/787.d6197fb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.628bfc7f.css",
+    "static/js/main.cfeb7883.js"
+  ]
+}
